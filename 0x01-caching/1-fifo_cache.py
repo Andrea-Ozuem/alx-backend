@@ -4,7 +4,7 @@
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-class BasicCache(BaseCaching):
+class FIFOCache(BaseCaching):
     '''a caching system'''
     def __init__(self):
         '''Initiliaze'''
@@ -14,6 +14,10 @@ class BasicCache(BaseCaching):
         '''assign to the dictionary self.cache_data
         the item value for the key key
         '''
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+            first = list(self.cache_data.keys())[0]
+            self.cache_data.pop(first)
+            print('DISCARD: {}'.format(first))
         if key and item:
             self.cache_data[key] = item
 
