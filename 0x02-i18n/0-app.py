@@ -2,14 +2,13 @@
 'Flask app'
 
 from flask import Flask, render_template
-from flask_babel import Babel
-
 
 app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
 def main():
+    '''index'''
     return render_template('0-index.html')
 
 

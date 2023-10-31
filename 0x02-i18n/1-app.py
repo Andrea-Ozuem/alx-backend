@@ -21,6 +21,7 @@ app.config.from_object = Config
 
 @app.route('/', strict_slashes=False)
 def main():
+    '''index'''
     return render_template('1-index.html')
 
 
