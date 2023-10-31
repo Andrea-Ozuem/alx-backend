@@ -28,8 +28,8 @@ def get_locale() -> Optional[str]:
 @app.route('/', strict_slashes=False)
 def main():
     '''index'''
-    home_title = 'Welcome to Holberton'
-    home_header = 'Hello world!'
+    home_title = _('Welcome to Holberton')
+    home_header = _('Hello world!')
     return render_template('3-index.html', home_title=home_title,
                            home_header=home_header)
 
