@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-'Flask app'
+'Flask app that has translation workflow with locale func'
 
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
