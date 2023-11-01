@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-'Flask app'
+"""3. Parameterize templates - outputs Hello World.
+This module parametises the title and header to different
+locales"""
 
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
