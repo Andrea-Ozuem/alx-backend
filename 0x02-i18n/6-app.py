@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-'Flask app'
+"""3. Parameterize templates - outputs Hello World.
+This module parametises the title and header to different
+locales"""
 
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
@@ -57,7 +59,7 @@ def get_locale() -> Optional[str]:
         if locale in app.config['LANGUAGES']:
             return locale
     headers = request.headers.get("locale")
-    if headers:
+    if headers and headers in app.config['LANGUAGES']:
         return headers
     if len(request.accept_languages) > 0:
         return request.accept_languages.best_match(app.config['LANGUAGES'])

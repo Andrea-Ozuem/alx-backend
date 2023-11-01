@@ -47,11 +47,10 @@ def get_timezone():
             return tz
         except pytz.exceptions.UnknownTimeZoneError:
             pass
-    u_id = request.args.get('login_as')
-    if u_id:
-        tz = users.get(int(u_id)).get('timezone')
+    user = get_user()
+    if user:
         try:
-            pytz.timezone(tz)
+            pytz.timezone(user.get('timezone'))
             return tz
         except pytz.exceptions.UnknownTimeZoneError:
             pass
