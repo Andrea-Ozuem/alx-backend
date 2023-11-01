@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-'Flask app'
+"""3. Parameterize templates - outputs Hello World.
+This module parametises the title and header to different
+locales"""
 
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
@@ -27,7 +29,8 @@ def get_locale() -> Optional[str]:
 
 @app.route('/', strict_slashes=False)
 def main():
-    '''index and translates title and header of html file'''
+    '''index and translates title and header of html file
+    with translation workflow'''
     home_title = 'Welcome to Holberton'
     home_header = 'Hello world!'
     return render_template('3-index.html', home_title=home_title,

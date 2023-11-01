@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-'Flask app that has translation workflow with locale func'
+"""3. Parameterize templates - outputs Hello World.
+This module parametises the title and header to different
+locales"""
 
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
@@ -21,7 +23,9 @@ app.config.from_object(Config)
 
 @babel.localeselector
 def get_locale() -> Optional[str]:
-    '''select a language translation to use for the request'''
+    '''select a language translation to use for the request
+    either from url or using best fit from client settings
+    '''
     locale = request.args.get('locale')
     if locale and locale in app.config['LANGUAGES']:
         return locale
@@ -30,7 +34,8 @@ def get_locale() -> Optional[str]:
 
 @app.route('/', strict_slashes=False)
 def main():
-    '''index route to display title and header'''
+    '''index route to display title and header
+    with translations workflow'''
     home_title = 'Welcome to Holberton'
     home_header = 'Hello world!'
     return render_template('4-index.html', home_title=home_title,
